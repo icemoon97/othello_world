@@ -1,4 +1,3 @@
-from .othello import get as get_othello
 import seaborn as sns
 import numpy as np
 import torch

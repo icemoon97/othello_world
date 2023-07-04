@@ -187,13 +187,15 @@ def generate_synthetic(n, data_root=None):
     num_proc = multiprocessing.cpu_count() # use all processors
     p = multiprocessing.Pool(num_proc)
     for possible in tqdm(p.imap(get_synthetic_game, range(n)), total=n):
-        if not possible in seq:
-            seq.append(possible)
+        seq.append(possible)
     p.close()
+    
+    print(f"generated initial {len(seq)} games. Now deduplicating...")
+    seq = [k for k, _ in itertools.groupby(sorted(seq))]
 
     t_start = time.strftime("_%Y%m%d_%H%M%S")
     path = f"{data_root}/gen10e5_{t_start}.pickle"
-    print(f"saving {len(seq)} synthetic games to {path}")
+    print(f"deduplicating done. saving {len(seq)} synthetic games to {path}")
     with open(path, 'wb') as handle:
         pickle.dump(seq, handle, protocol=pickle.HIGHEST_PROTOCOL)
     
@@ -433,13 +435,11 @@ class OthelloBoardState():
         return container
 
 if __name__ == "__main__":
-    
     # o = Othello(data_root="othello_championship", championship=True)
     # o = Othello(data_root="othello_synthetic", n_games=-1)
 
     # generate_synthetic(50, data_root="othello_test")
     # o = Othello(data_root="othello_test", n_games=-1)
-    
     
     pass
 

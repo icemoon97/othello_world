@@ -4,9 +4,6 @@ from torch.utils.data import Dataset
 
 class CharDataset(Dataset):
     def __init__(self, data):
-        if hasattr(data, "ood_perc"):
-            ood_perc = data.ood_perc
-            data.ood_perc = 0  # shut down the randomness
         chars = sorted(list(set(list(itertools.chain.from_iterable(data)))) + [-100, ])
         data_size, vocab_size = len(data), len(chars)  # vocab size 61, with -100 sorted to the front
         max_len = max([len(data[_]) for _ in range(len(data))])  # should be 60 in Othello
@@ -17,8 +14,6 @@ class CharDataset(Dataset):
         self.max_len = max_len
         self.block_size = max_len - 1  # for autoregressive training
         self.vocab_size = vocab_size
-        if hasattr(data, "ood_perc"):
-            data.ood_perc = ood_perc  # turn on the randomness
         self.data = data
     
     def __len__(self):

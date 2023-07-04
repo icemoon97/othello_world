@@ -125,7 +125,7 @@ class Trainer:
             # saving at specific epochs
             if epoch in self.config.saved_epochs:
                 original_path = self.config.ckpt_path
-                self.config.ckpt_path = original_path.replace(".ckpt", "") + f"_e{epoch+6}.ckpt"
+                self.config.ckpt_path = original_path.replace(".ckpt", "") + f"_e{epoch+1}.ckpt"
                 self.save_checkpoint()
                 self.config.ckpt_path = original_path
 
