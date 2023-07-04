@@ -58,128 +58,146 @@ def permit_reverse(integer):
 start_hands = [permit(_) for _ in ["d5", "d4", "e4", "e5"]]
 eights = [[-1, 0], [-1, 1], [0, 1], [1, 1], [1, 0], [1, -1], [0, -1], [-1, -1]]
 
-# wanna_use = "othello_synthetic"
-wanna_use = "othello_topleftbias80"
+default_data = "othello_synthetic"
 
 class Othello:
-    def __init__(self, ood_perc=0., data_root=None, wthor=False, ood_num=1000):
-        # ood_perc: probability of swapping an in-distribution game (real championship game)
-        # with a generated legit but stupid game, when data_root is None, should set to 0
-        # data_root: if provided, will load pgn files there, else load from data/gen10e5
-        # ood_num: how many simulated games to use, if -1, load 200 * 1e5 games = 20 million
-        self.ood_perc = ood_perc
+    def __init__(self, data_root=None, championship=False, wthor=False, n_games=1000, test_split=0.2):
+        # data_root: folder of games dataset
+        # championship: True if loading from .pgn files, otherwise assume .pickle sequences
+        # wthor: True for WTHOR dataset, false for liveothello
+        # n_games: -1 to load all games at data_root
+        # test_split: test/train split for loaded games
+        self.board_size = 8 * 8
+        self.total_games = n_games
+        self.data_root = data_root if data_root is not None else default_data
         self.sequences = []
         self.results = []
-        self.board_size = 8 * 8
-        criteria = lambda fn: fn.endswith("pgn") if wthor else fn.startswith("liveothello")
-        if data_root is None:
-            if ood_num == 0:
-                return
-            else:
-                if ood_num != -1:  # this setting used for generating synthetic dataset
-                    print("generating new synthetic dataset")
-                    num_proc = multiprocessing.cpu_count() # use all processors
-                    p = multiprocessing.Pool(num_proc)
-                    for can in tqdm(p.imap(get_ood_game, range(ood_num)), total=ood_num):
-                        if not can in self.sequences:
-                            self.sequences.append(can)
-                    p.close()
-                    t_start = time.strftime("_%Y%m%d_%H%M%S")
-                    if ood_num > 1000:
-                        with open(f'./data/{wanna_use}/gen10e5_{t_start}.pickle', 'wb') as handle:
-                            pickle.dump(self.sequences, handle, protocol=pickle.HIGHEST_PROTOCOL)
-                else:
-                    bar = tqdm(os.listdir(f"./data/{wanna_use}"))
-                    trash = []
-                    cnt = 0 
-                    for f in bar:
-                        if not f.endswith(".pickle"):
-                            continue
-                        with open(os.path.join(f"./data/{wanna_use}", f), 'rb') as handle:
-                            cnt += 1
-                            if cnt > 250:
-                                break
-                            b = pickle.load(handle)
-                            if len(b) < 9e4:  # should be 1e5 each
-                                trash.append(f)
-                                continue
-                            self.sequences.extend(b)
-                        process = psutil.Process(os.getpid())
-                        mem_gb = process.memory_info().rss / 2 ** 30
-                        bar.set_description(f"Mem Used: {mem_gb:.4} GB")
-                    print("Deduplicating...")
-                    seq = self.sequences
-                    seq.sort()
-                    self.sequences = [k for k, _ in itertools.groupby(seq)]
-                    for t in trash:
-                        os.remove(os.path.join(f"./data/{wanna_use}", f))
-                    print(f"Deduplicating finished with {len(self.sequences)} games left")
-                    # train_set_size = 4000000
-                    train_set_size = int(0.8 * len(self.sequences))
-                    self.val = self.sequences[train_set_size:]
-                    self.sequences = self.sequences[:train_set_size]
-                    print(f"Using {train_set_size} for training, {len(self.val)} for validation")
-        else:
-            for fn in os.listdir(data_root):
-                if criteria(fn):
-                    with open(os.path.join(data_root, fn), "r") as f:
-                        pgn_text = f.read()
-                    games = pgn.loads(pgn_text)
-                    num_ldd = len(games)
-                    processed = []
-                    res = []
-                    for game in games:
-                        tba = []
-                        for move in game.moves:
-                            x = permit(move)
-                            if x != -1:
-                                tba.append(x)
-                            else:
-                                break
-                        if len(tba) != 0:
-                            try:
-                                rr = [int(s) for s in game.result.split("-")]
-                            except:
-                                # print(game.result)
-                                # break
-                                rr = [0, 0]
-                            res.append(rr)
-                            processed.append(tba)
 
-                    num_psd = len(processed)
-                    print(f"Loaded {num_psd}/{num_ldd} (qualified/total) sequences from {fn}")
-                    self.sequences.extend(processed)
-                    self.results.extend(res)
+        if not n_games:
+            return
+        if championship:
+            self.load_championship(wthor)
+            return
         
+        bar = tqdm(os.listdir(f"./data/{self.data_root}"))
+        files_loaded = 0
+        games_loaded = 0
+        # loop through all files in data_root and load pickle sequences
+        for f in bar:
+            if not f.endswith(".pickle"):
+                continue
+
+            path = os.path.join(f"./data/{self.data_root}", f)
+            with open(path, 'rb') as handle:
+                b = pickle.load(handle)
+                files_loaded += 1
+                games_loaded += len(b)
+                if len(b) < 9e4:  # should be 1e5 each
+                    print(f"Warning: {path} only contains {len(b)} sequences")
+                self.sequences.extend(b)
+
+            process = psutil.Process(os.getpid())
+            mem_gb = process.memory_info().rss / 2 ** 30
+            bar.set_description(f"Mem Used: {mem_gb:.4} GB")
+
+            # break if target number of games is reached
+            if n_games > 0 and games_loaded > n_games:
+                break
+
+        if n_games > 0:
+            self.sequences = self.sequences[:n_games]
+
+        print(f"Loaded {games_loaded} from {files_loaded} files. Now deduplicating...")
+        seq = sorted(self.sequences)
+        self.sequences = [k for k, _ in itertools.groupby(seq)]
+        print(f"Deduplicating finished with {len(self.sequences)} games left")
+
+        test_size = int(test_split * len(self.sequences))
+        self.val = self.sequences[:test_size]
+        self.sequences = self.sequences[test_size:]
+        print(f"Using {len(self.sequences)} for training, {len(self.val)} for validation")
+
+    def load_championship(self, wthor):
+        criteria = lambda fn: fn.endswith("pgn") if wthor else fn.startswith("liveothello")
+
+        if self.data_root is None:
+            print("Must provide data_root with championship=True")
+            return
+
+        for fn in os.listdir(f"./data/{self.data_root}"):
+            if not criteria(fn):
+                continue
+
+            with open(os.path.join(f"./data/{self.data_root}", fn), "r") as f:
+                pgn_text = f.read()
+            games = pgn.loads(pgn_text)
+            num_ldd = len(games)
+            processed = []
+            res = []
+            for game in games:
+                tba = []
+                for move in game.moves:
+                    x = permit(move)
+                    if x != -1:
+                        tba.append(x)
+                    else:
+                        break
+                if len(tba) != 0:
+                    try:
+                        rr = [int(s) for s in game.result.split("-")]
+                    except:
+                        # print(game.result)
+                        # break
+                        rr = [0, 0]
+                    res.append(rr)
+                    processed.append(tba)
+
+            num_psd = len(processed)
+            print(f"Loaded {num_psd}/{num_ldd} (qualified/total) sequences from {fn}")
+            self.sequences.extend(processed)
+            self.results.extend(res)
+
     def __len__(self, ):
         return len(self.sequences)
+    
     def __getitem__(self, i):
-        if random.random() < self.ood_perc:
-            tbr = get_ood_game(0)
-        else:
-            tbr = self.sequences[i]
-        return tbr
+        return self.sequences[i]
     
-def get_ood_game(_):
-    tbr = []
-    ab = OthelloBoardState()
-    possible_next_steps = ab.get_valid_moves()
-    while possible_next_steps:
-        # next_step = random.choice(possible_next_steps)
-        # biased towards top left corner of board
-        if random.random() < 0.8:
-            next_step = possible_next_steps[0]
-        else:
-            next_step = random.choice(possible_next_steps)
-            
-        tbr.append(next_step)
-        ab.update([next_step, ])
-        possible_next_steps = ab.get_valid_moves()
-    return tbr
+def get_synthetic_game(_):
+    moves = []
+    ob = OthelloBoardState()
+    legal_moves = ob.get_valid_moves()
+    while legal_moves:
+        # uniform random selection
+        next_step = random.choice(legal_moves)
+        moves.append(next_step)
+        ob.update([next_step, ])
+        legal_moves = ob.get_valid_moves()
+    return moves
+
+def generate_synthetic(n, data_root=None):
+    data_root = data_root if data_root is not None else default_data
+    data_root = f"./data/{data_root}"
+    # create dir if it doesn't already exist
+    if not os.path.exists(data_root):
+        os.makedirs(data_root)
+        print(f"Created dir {data_root}")
+
+    seq = []
+    num_proc = multiprocessing.cpu_count() # use all processors
+    p = multiprocessing.Pool(num_proc)
+    for possible in tqdm(p.imap(get_synthetic_game, range(n)), total=n):
+        if not possible in seq:
+            seq.append(possible)
+    p.close()
+
+    t_start = time.strftime("_%Y%m%d_%H%M%S")
+    path = f"{data_root}/gen10e5_{t_start}.pickle"
+    print(f"saving {len(seq)} synthetic games to {path}")
+    with open(path, 'wb') as handle:
+        pickle.dump(seq, handle, protocol=pickle.HIGHEST_PROTOCOL)
     
-def get(ood_perc=0., data_root=None, wthor=False, ood_num=1000):
-    return Othello(ood_perc, data_root, wthor, ood_num)
-    
+
 class OthelloBoardState():
     # 1 is black, -1 is white
     def __init__(self, board_size = 8):
@@ -415,5 +433,13 @@ class OthelloBoardState():
         return container
 
 if __name__ == "__main__":
-    get_ood_game(0)
-    # pass
+    
+    # o = Othello(data_root="othello_championship", championship=True)
+    # o = Othello(data_root="othello_synthetic", n_games=-1)
+
+    # generate_synthetic(50, data_root="othello_test")
+    # o = Othello(data_root="othello_test", n_games=-1)
+    
+    
+    pass
+
