@@ -92,8 +92,8 @@ class Othello:
                 b = pickle.load(handle)
                 files_loaded += 1
                 games_loaded += len(b)
-                if len(b) < 9e4:  # should be 1e5 each
-                    print(f"Warning: {path} only contains {len(b)} sequences")
+                # if len(b) < 9e4:  # should be 1e5 each
+                #     print(f"Warning: {path} only contains {len(b)} sequences")
                 self.sequences.extend(b)
 
             process = psutil.Process(os.getpid())
@@ -168,7 +168,11 @@ def get_synthetic_game(_):
     ob = OthelloBoardState()
     legal_moves = ob.get_valid_moves()
     while legal_moves:
-        # uniform random selection
+        # if random.random() < 0.95:
+        #     next_step = legal_moves[0]
+        # else:
+        #     # uniform random selection
+        #     next_step = random.choice(legal_moves)
         next_step = random.choice(legal_moves)
         moves.append(next_step)
         ob.update([next_step, ])
@@ -440,6 +444,12 @@ if __name__ == "__main__":
 
     # generate_synthetic(50, data_root="othello_test")
     # o = Othello(data_root="othello_test", n_games=-1)
+
+    # o = Othello(data_root="othello_topleftbias80", n_games=-1)
+
+    # for i in range(8):
+    #     print(i, "bias 95")
+    #     generate_synthetic(100000, data_root="othello_topleftbias95")
     
     pass
 

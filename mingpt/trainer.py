@@ -31,7 +31,6 @@ class TrainerConfig:
     # checkpoint settings
     ckpt_path = None
     num_workers = 0 # for DataLoader
-    saved_epochs = [] # epochs to save checkpoints after
 
     def __init__(self, **kwargs):
         for k,v in kwargs.items():
@@ -121,13 +120,6 @@ class Trainer:
             run_epoch('train')
             if self.test_dataset is not None:
                 test_loss = run_epoch('test')
-
-            # saving at specific epochs
-            if epoch in self.config.saved_epochs:
-                original_path = self.config.ckpt_path
-                self.config.ckpt_path = original_path.replace(".ckpt", "") + f"_e{epoch+1}.ckpt"
-                self.save_checkpoint()
-                self.config.ckpt_path = original_path
 
             # supports early stopping based on the test loss, or just save always if no test set is provided
             if self.config.ckpt_path is not None:
