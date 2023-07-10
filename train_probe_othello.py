@@ -21,8 +21,7 @@ import torch.nn as nn
 from torch.nn import functional as F
 from torch.utils.data import Dataset
 from torch.utils.data.dataloader import DataLoader
-from data import get_othello
-from data.othello import permit, start_hands, OthelloBoardState
+from data.othello import Othello, OthelloBoardState
 from mingpt.dataset import CharDataset
 from mingpt.model import GPT, GPTConfig, GPTforProbing
 from mingpt.probe_trainer import Trainer, TrainerConfig
@@ -60,16 +59,15 @@ parser.add_argument('--exp',
 
 args, _ = parser.parse_known_args()
 
-folder_name = f"grok/probes/{args.exp}"
+folder_name = f"bias/probes/{args.exp}"
 
 if args.twolayer:
-    folder_name = folder_name + f"_tl{args.mid_dim}"  # tl for probes without batchnorm
+    folder_name = folder_name + f"_tl{args.mid_dim}{args.ckpt[-2:]}"  # tl for probes without batchnorm
 if args.random:
     folder_name = folder_name + "_random"
 
 print(f"Running experiment for {folder_name}")
-othello = get_othello(data_root="data/othello_championship")
-# othello = get_othello()
+othello = Othello(n_games=10000, deduplicate=False)
 
 train_dataset = CharDataset(othello)
 

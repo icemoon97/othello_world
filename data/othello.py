@@ -61,12 +61,13 @@ eights = [[-1, 0], [-1, 1], [0, 1], [1, 1], [1, 0], [1, -1], [0, -1], [-1, -1]]
 default_data = "othello_synthetic"
 
 class Othello:
-    def __init__(self, data_root=None, championship=False, wthor=False, n_games=1000, test_split=0.2):
+    def __init__(self, data_root=None, championship=False, wthor=False, n_games=1000, test_split=0.2, deduplicate=True):
         # data_root: folder of games dataset
         # championship: True if loading from .pgn files, otherwise assume .pickle sequences
         # wthor: True for WTHOR dataset, false for liveothello
         # n_games: -1 to load all games at data_root
         # test_split: test/train split for loaded games
+        # deduplicate: True if games should be deduplicated (not necessary if games have been pre processed)
         self.board_size = 8 * 8
         self.total_games = n_games
         self.data_root = data_root if data_root is not None else default_data
@@ -106,11 +107,12 @@ class Othello:
 
         if n_games > 0:
             self.sequences = self.sequences[:n_games]
+        print(f"Loaded {games_loaded} from {files_loaded} files")
 
-        print(f"Loaded {games_loaded} from {files_loaded} files. Now deduplicating...")
-        seq = sorted(self.sequences)
-        self.sequences = [k for k, _ in itertools.groupby(seq)]
-        print(f"Deduplicating finished with {len(self.sequences)} games left")
+        if (deduplicate):
+            seq = sorted(self.sequences)
+            self.sequences = [k for k, _ in itertools.groupby(seq)]
+            print(f"Deduplicating finished with {len(self.sequences)} games left")
 
         test_size = int(test_split * len(self.sequences))
         self.val = self.sequences[:test_size]
@@ -168,12 +170,12 @@ def get_synthetic_game(_):
     ob = OthelloBoardState()
     legal_moves = ob.get_valid_moves()
     while legal_moves:
-        # if random.random() < 0.95:
-        #     next_step = legal_moves[0]
-        # else:
-        #     # uniform random selection
-        #     next_step = random.choice(legal_moves)
-        next_step = random.choice(legal_moves)
+        if random.random() < 0.5:
+            next_step = legal_moves[0]
+        else:
+            # uniform random selection
+            next_step = random.choice(legal_moves)
+        # next_step = random.choice(legal_moves)
         moves.append(next_step)
         ob.update([next_step, ])
         legal_moves = ob.get_valid_moves()
@@ -445,11 +447,22 @@ if __name__ == "__main__":
     # generate_synthetic(50, data_root="othello_test")
     # o = Othello(data_root="othello_test", n_games=-1)
 
-    # o = Othello(data_root="othello_topleftbias80", n_games=-1)
 
-    # for i in range(8):
-    #     print(i, "bias 95")
-    #     generate_synthetic(100000, data_root="othello_topleftbias95")
+    # o = Othello(data_root="othello_topleftbias50", n_games=-1, test_split=0)
+    # seq = o.sequences
+    # random.shuffle(seq)
+
+    # i = 0
+    # chunk = 100000
+    # t_start = time.strftime("_%Y%m%d_%H%M%S")
+    # path = "data/new_50/gen10e5"    
+    # while i < len(seq):
+    #     sub = seq[i:i+chunk]
+    #     print(len(sub))
+    #     with open(f"{path}_{i}.pickle", 'wb') as handle:
+    #         pickle.dump(sub, handle, protocol=pickle.HIGHEST_PROTOCOL)
+    #     i += chunk
+
     
     pass
 
