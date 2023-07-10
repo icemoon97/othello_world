@@ -140,3 +140,4 @@ cython_debug/
 # customized for files too large to get onto github
 data/othello_*
 ckpts/*
+visuals/data/*
