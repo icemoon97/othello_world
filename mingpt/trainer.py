@@ -30,6 +30,7 @@ class TrainerConfig:
     final_tokens = 260e9 # (at what point we reach 10% of original LR)
     # checkpoint settings
     ckpt_path = None
+    save_each_epoch = False
     num_workers = 0 # for DataLoader
 
     def __init__(self, **kwargs):
@@ -120,6 +121,12 @@ class Trainer:
             run_epoch('train')
             if self.test_dataset is not None:
                 test_loss = run_epoch('test')
+
+            if self.config.save_each_epoch:
+                prev = self.config.ckpt_path
+                self.config.ckpt_path += f"_e{epoch+1}"
+                self.save_checkpoint()
+                self.config.ckpt_path = prev
 
             # supports early stopping based on the test loss, or just save always if no test set is provided
             if self.config.ckpt_path is not None:

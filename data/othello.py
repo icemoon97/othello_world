@@ -171,7 +171,7 @@ def get_synthetic_game(_):
     legal_moves = ob.get_valid_moves()
     while legal_moves:
         if random.random() < 0.5:
-            next_step = legal_moves[0]
+            next_step = legal_moves[-1]
         else:
             # uniform random selection
             next_step = random.choice(legal_moves)
@@ -444,25 +444,8 @@ if __name__ == "__main__":
     # o = Othello(data_root="othello_championship", championship=True)
     # o = Othello(data_root="othello_synthetic", n_games=-1)
 
-    # generate_synthetic(50, data_root="othello_test")
-    # o = Othello(data_root="othello_test", n_games=-1)
-
-
-    # o = Othello(data_root="othello_topleftbias50", n_games=-1, test_split=0)
-    # seq = o.sequences
-    # random.shuffle(seq)
-
-    # i = 0
-    # chunk = 100000
-    # t_start = time.strftime("_%Y%m%d_%H%M%S")
-    # path = "data/new_50/gen10e5"    
-    # while i < len(seq):
-    #     sub = seq[i:i+chunk]
-    #     print(len(sub))
-    #     with open(f"{path}_{i}.pickle", 'wb') as handle:
-    #         pickle.dump(sub, handle, protocol=pickle.HIGHEST_PROTOCOL)
-    #     i += chunk
-
+    # generate_synthetic(10000, data_root="othello_BRbias50")
+    # o = Othello(data_root="othello_BRbias50", n_games=-1)
     
     pass
 
