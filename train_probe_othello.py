@@ -62,7 +62,7 @@ args, _ = parser.parse_known_args()
 folder_name = f"bias/probes/{args.exp}"
 
 if args.twolayer:
-    folder_name = folder_name + f"_tl{args.mid_dim}{args.ckpt[-2:]}"  # tl for probes without batchnorm
+    folder_name = folder_name + f"_tl{args.mid_dim}"  # tl for probes without batchnorm
 if args.random:
     folder_name = folder_name + "_random"
 

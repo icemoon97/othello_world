@@ -3,11 +3,11 @@ import torch
 from torch.utils.data import Dataset
 
 class CharDataset(Dataset):
-    def __init__(self, data):
+    def __init__(self, data, quiet=False):
         chars = sorted(list(set(list(itertools.chain.from_iterable(data)))) + [-100, ])
         data_size, vocab_size = len(data), len(chars)  # vocab size 61, with -100 sorted to the front
         max_len = max([len(data[_]) for _ in range(len(data))])  # should be 60 in Othello
-        print('Dataset created has %d sequences, %d unique words.' % (data_size, vocab_size))
+        if not quiet: print('Dataset created has %d sequences, %d unique words.' % (data_size, vocab_size))
         
         self.stoi = {ch: i for i, ch in enumerate(chars)}
         self.itos = {i: ch for i, ch in enumerate(chars)}

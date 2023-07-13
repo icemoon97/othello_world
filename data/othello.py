@@ -61,13 +61,14 @@ eights = [[-1, 0], [-1, 1], [0, 1], [1, 1], [1, 0], [1, -1], [0, -1], [-1, -1]]
 default_data = "othello_synthetic"
 
 class Othello:
-    def __init__(self, data_root=None, championship=False, wthor=False, n_games=1000, test_split=0.2, deduplicate=True):
+    def __init__(self, data_root=None, championship=False, wthor=False, n_games=1000, test_split=0.2, deduplicate=True, quiet=False):
         # data_root: folder of games dataset
         # championship: True if loading from .pgn files, otherwise assume .pickle sequences
         # wthor: True for WTHOR dataset, false for liveothello
         # n_games: -1 to load all games at data_root
         # test_split: test/train split for loaded games
         # deduplicate: True if games should be deduplicated (not necessary if games have been pre processed)
+        # quiet: print statements
         self.board_size = 8 * 8
         self.total_games = n_games
         self.data_root = data_root if data_root is not None else default_data
@@ -80,7 +81,7 @@ class Othello:
             self.load_championship(wthor)
             return
         
-        bar = tqdm(os.listdir(f"./data/{self.data_root}"))
+        bar = tqdm(os.listdir(f"./data/{self.data_root}"), disable=quiet)
         files_loaded = 0
         games_loaded = 0
         # loop through all files in data_root and load pickle sequences
@@ -107,17 +108,17 @@ class Othello:
 
         if n_games > 0:
             self.sequences = self.sequences[:n_games]
-        print(f"Loaded {games_loaded} from {files_loaded} files")
+        if not quiet: print(f"Loaded {games_loaded} from {files_loaded} files")
 
         if (deduplicate):
             seq = sorted(self.sequences)
             self.sequences = [k for k, _ in itertools.groupby(seq)]
-            print(f"Deduplicating finished with {len(self.sequences)} games left")
+            if not quiet: print(f"Deduplicating finished with {len(self.sequences)} games left")
 
         test_size = int(test_split * len(self.sequences))
         self.val = self.sequences[:test_size]
         self.sequences = self.sequences[test_size:]
-        print(f"Using {len(self.sequences)} for training, {len(self.val)} for validation")
+        if not quiet: print(f"Using {len(self.sequences)} for training, {len(self.val)} for validation")
 
     def load_championship(self, wthor):
         criteria = lambda fn: fn.endswith("pgn") if wthor else fn.startswith("liveothello")
@@ -170,12 +171,12 @@ def get_synthetic_game(_):
     ob = OthelloBoardState()
     legal_moves = ob.get_valid_moves()
     while legal_moves:
-        if random.random() < 0.5:
-            next_step = legal_moves[-1]
-        else:
-            # uniform random selection
-            next_step = random.choice(legal_moves)
-        # next_step = random.choice(legal_moves)
+        # if random.random() < 0.8:
+        #     next_step = legal_moves[-1]
+        # else:
+        #     # uniform random selection
+        #     next_step = random.choice(legal_moves)
+        next_step = random.choice(legal_moves)
         moves.append(next_step)
         ob.update([next_step, ])
         legal_moves = ob.get_valid_moves()
@@ -444,8 +445,8 @@ if __name__ == "__main__":
     # o = Othello(data_root="othello_championship", championship=True)
     # o = Othello(data_root="othello_synthetic", n_games=-1)
 
-    # generate_synthetic(10000, data_root="othello_BRbias50")
-    # o = Othello(data_root="othello_BRbias50", n_games=-1)
+    # generate_synthetic(10000, data_root="othello_BRbias80")
+    # o = Othello(data_root="othello_BRbias80", n_games=-1)
     
     pass
 
