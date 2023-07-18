@@ -1,0 +1,1802 @@
+  0%|          | 0/50 [00:00<?, ?it/s]
+Mem Used: 4.31 GB:   0%|          | 0/50 [00:00<?, ?it/s]
+Loaded 100000 from 1 files
+Using 80 for training, 20 for validation
+{'intervention_position': 'e5', 'intervention_from': 0, 'intervention_to': 1}
+--------------------
+[]
+a                
+b                
+c                
+d       O X      
+e       X O      
+f                
+g                
+h                
+  1 2 3 4 5 6 7 8
+--------------------
+--------------------
+['c4']
+a                
+b                
+c       X        
+d       X X      
+e       X O      
+f                
+g                
+h                
+  1 2 3 4 5 6 7 8
+--------------------
+--------------------
+['c4', 'e3']
+a                
+b                
+c       X        
+d       X X      
+e     O O O      
+f                
+g                
+h                
+  1 2 3 4 5 6 7 8
+--------------------
+--------------------
+['c4', 'e3', 'f2']
+a                
+b                
+c       X        
+d       X X      
+e     X O O      
+f   X            
+g                
+h                
+  1 2 3 4 5 6 7 8
+--------------------
+--------------------
+['c4', 'e3', 'f2', 'c3']
+a                
+b                
+c     O X        
+d       O X      
+e     X O O      
+f   X            
+g                
+h                
+  1 2 3 4 5 6 7 8
+--------------------
+--------------------
+['c4', 'e3', 'f2', 'c3', 'c2']
+a                
+b                
+c   X X X        
+d       O X      
+e     X O O      
+f   X            
+g                
+h                
+  1 2 3 4 5 6 7 8
+--------------------
+--------------------
+['c4', 'e3', 'f2', 'c3', 'c2', 'd6']
+a                
+b                
+c   X X X        
+d       O O O    
+e     X O O      
+f   X            
+g                
+h                
+  1 2 3 4 5 6 7 8
+--------------------
+--------------------
+['c4', 'e3', 'f2', 'c3', 'c2', 'd6', 'c5']
+a                
+b                
+c   X X X X      
+d       X O O    
+e     X O O      
+f   X            
+g                
+h                
+  1 2 3 4 5 6 7 8
+--------------------
+--------------------
+['c4', 'e3', 'f2', 'c3', 'c2', 'd6', 'c5', 'b2']
+a                
+b   O            
+c   X O X X      
+d       O O O    
+e     X O O      
+f   X            
+g                
+h                
+  1 2 3 4 5 6 7 8
+--------------------
+--------------------
+['c4', 'e3', 'f2', 'c3', 'c2', 'd6', 'c5', 'b2', 'e7']
+a                
+b   O            
+c   X O X X      
+d       O O X    
+e     X O O   X  
+f   X            
+g                
+h                
+  1 2 3 4 5 6 7 8
+--------------------
+--------------------
+['c4', 'e3', 'f2', 'c3', 'c2', 'd6', 'c5', 'b2', 'e7', 'c7']
+a                
+b   O            
+c   X O X X   O  
+d       O O O    
+e     X O O   X  
+f   X            
+g                
+h                
+  1 2 3 4 5 6 7 8
+--------------------
+--------------------
+['c4', 'e3', 'f2', 'c3', 'c2', 'd6', 'c5', 'b2', 'e7', 'c7', 'a2']
+a   X            
+b   X            
+c   X O X X   O  
+d       O O O    
+e     X O O   X  
+f   X            
+g                
+h                
+  1 2 3 4 5 6 7 8
+--------------------
+--------------------
+['c4', 'e3', 'f2', 'c3', 'c2', 'd6', 'c5', 'b2', 'e7', 'c7', 'a2', 'c1']
+a   X            
+b   X            
+c O O O X X   O  
+d       O O O    
+e     X O O   X  
+f   X            
+g                
+h                
+  1 2 3 4 5 6 7 8
+--------------------
+--------------------
+['c4', 'e3', 'f2', 'c3', 'c2', 'd6', 'c5', 'b2', 'e7', 'c7', 'a2', 'c1', 'f5']
+a   X            
+b   X            
+c O O O X X   O  
+d       O X O    
+e     X O X   X  
+f   X     X      
+g                
+h                
+  1 2 3 4 5 6 7 8
+--------------------
+--------------------
+['c4', 'e3', 'f2', 'c3', 'c2', 'd6', 'c5', 'b2', 'e7', 'c7', 'a2', 'c1', 'f5', 'a3']
+a   X O          
+b   O            
+c O O O X X   O  
+d       O X O    
+e     X O X   X  
+f   X     X      
+g                
+h                
+  1 2 3 4 5 6 7 8
+--------------------
+--------------------
+['c4', 'e3', 'f2', 'c3', 'c2', 'd6', 'c5', 'b2', 'e7', 'c7', 'a2', 'c1', 'f5', 'a3', 'd2']
+a   X O          
+b   X            
+c O X O X X   O  
+d   X   O X O    
+e     X O X   X  
+f   X     X      
+g                
+h                
+  1 2 3 4 5 6 7 8
+--------------------
+--------------------
+['c4', 'e3', 'f2', 'c3', 'c2', 'd6', 'c5', 'b2', 'e7', 'c7', 'a2', 'c1', 'f5', 'a3', 'd2', 'f6']
+a   X O          
+b   X            
+c O X O X X   O  
+d   X   O X O    
+e     X O O   X  
+f   X     X O    
+g                
+h                
+  1 2 3 4 5 6 7 8
+--------------------
+--------------------
+['c4', 'e3', 'f2', 'c3', 'c2', 'd6', 'c5', 'b2', 'e7', 'c7', 'a2', 'c1', 'f5', 'a3', 'd2', 'f6', 'f7']
+a   X O          
+b   X            
+c O X O X X   O  
+d   X   O X O    
+e     X O O   X  
+f   X     X X X  
+g                
+h                
+  1 2 3 4 5 6 7 8
+--------------------
+--------------------
+['c4', 'e3', 'f2', 'c3', 'c2', 'd6', 'c5', 'b2', 'e7', 'c7', 'a2', 'c1', 'f5', 'a3', 'd2', 'f6', 'f7', 'f8']
+a   X O          
+b   X            
+c O X O X X   O  
+d   X   O X O    
+e     X O O   O  
+f   X     X X X O
+g                
+h                
+  1 2 3 4 5 6 7 8
+--------------------
+--------------------
+['c4', 'e3', 'f2', 'c3', 'c2', 'd6', 'c5', 'b2', 'e7', 'c7', 'a2', 'c1', 'f5', 'a3', 'd2', 'f6', 'f7', 'f8', 'e6']
+a   X O          
+b   X            
+c O X O X X   O  
+d   X   O X O    
+e     X X X X O  
+f   X     X X X O
+g                
+h                
+  1 2 3 4 5 6 7 8
+--------------------
+--------------------
+['c4', 'e3', 'f2', 'c3', 'c2', 'd6', 'c5', 'b2', 'e7', 'c7', 'a2', 'c1', 'f5', 'a3', 'd2', 'f6', 'f7', 'f8', 'e6', 'g7']
+a   X O          
+b   X            
+c O X O X X   O  
+d   X   O X O    
+e     X X O X O  
+f   X     X O O O
+g             O  
+h                
+  1 2 3 4 5 6 7 8
+--------------------
+128
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+a1 Sucessfully intervened!
+a1 Sucessfully intervened!
+a1 Sucessfully intervened!
+a1 Sucessfully intervened!
+a1 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+a1 Sucessfully intervened!
+a1 Sucessfully intervened!
+a1 Sucessfully intervened!
+a1 Sucessfully intervened!
+a1 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+a2 Sucessfully intervened!
+a2 Sucessfully intervened!
+a2 Sucessfully intervened!
+a2 Sucessfully intervened!
+a2 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+a2 Sucessfully intervened!
+a2 Sucessfully intervened!
+a2 Sucessfully intervened!
+a2 Sucessfully intervened!
+a2 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+a3 Sucessfully intervened!
+a3 Sucessfully intervened!
+a3 Sucessfully intervened!
+a3 Sucessfully intervened!
+a3 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+a3 Sucessfully intervened!
+a3 Sucessfully intervened!
+a3 Sucessfully intervened!
+a3 Sucessfully intervened!
+a3 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+a4 Sucessfully intervened!
+a4 Sucessfully intervened!
+a4 Sucessfully intervened!
+a4 Sucessfully intervened!
+a4 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a5', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+a4 Sucessfully intervened!
+a4 Sucessfully intervened!
+a4 Sucessfully intervened!
+a4 Sucessfully intervened!
+a4 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+a5 Sucessfully intervened!
+a5 Sucessfully intervened!
+a5 Sucessfully intervened!
+a5 Sucessfully intervened!
+a5 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+a5 Sucessfully intervened!
+a5 Sucessfully intervened!
+a5 Sucessfully intervened!
+a5 Sucessfully intervened!
+a5 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+a6 Sucessfully intervened!
+a6 Sucessfully intervened!
+a6 Sucessfully intervened!
+a6 Sucessfully intervened!
+a6 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+a6 Sucessfully intervened!
+a6 Sucessfully intervened!
+a6 Sucessfully intervened!
+a6 Sucessfully intervened!
+a6 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+a7 Sucessfully intervened!
+a7 Sucessfully intervened!
+a7 Sucessfully intervened!
+a7 Sucessfully intervened!
+a7 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+a7 Sucessfully intervened!
+a7 Sucessfully intervened!
+a7 Sucessfully intervened!
+a7 Sucessfully intervened!
+a7 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+a8 Sucessfully intervened!
+a8 Sucessfully intervened!
+a8 Sucessfully intervened!
+a8 Sucessfully intervened!
+a8 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+a8 Sucessfully intervened!
+a8 Sucessfully intervened!
+a8 Sucessfully intervened!
+a8 Sucessfully intervened!
+a8 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd1', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+b1 Sucessfully intervened!
+b1 Sucessfully intervened!
+b1 Sucessfully intervened!
+b1 Sucessfully intervened!
+b1 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+b1 Sucessfully intervened!
+b1 Sucessfully intervened!
+b1 Sucessfully intervened!
+b1 Sucessfully intervened!
+b1 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8']
+b2 Sucessfully intervened!
+b2 Sucessfully intervened!
+b2 Sucessfully intervened!
+b2 Sucessfully intervened!
+b2 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8']
+b2 Sucessfully intervened!
+b2 Sucessfully intervened!
+b2 Sucessfully intervened!
+b2 Sucessfully intervened!
+b2 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+b3 Sucessfully intervened!
+b3 Sucessfully intervened!
+b3 Sucessfully intervened!
+b3 Sucessfully intervened!
+b3 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+b3 Sucessfully intervened!
+b3 Sucessfully intervened!
+b3 Sucessfully intervened!
+b3 Sucessfully intervened!
+b3 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+b4 Sucessfully intervened!
+b4 Sucessfully intervened!
+b4 Sucessfully intervened!
+b4 Sucessfully intervened!
+b4 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'a5', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+b4 Sucessfully intervened!
+b4 Sucessfully intervened!
+b4 Sucessfully intervened!
+b4 Sucessfully intervened!
+b4 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+b5 Sucessfully intervened!
+b5 Sucessfully intervened!
+b5 Sucessfully intervened!
+b5 Sucessfully intervened!
+b5 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'a5', 'a6', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+b5 Sucessfully intervened!
+b5 Sucessfully intervened!
+b5 Sucessfully intervened!
+b5 Sucessfully intervened!
+b5 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'd8', 'e8', 'g6', 'g8', 'h8']
+b6 Sucessfully intervened!
+b6 Sucessfully intervened!
+b6 Sucessfully intervened!
+b6 Sucessfully intervened!
+b6 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'a7', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+b6 Sucessfully intervened!
+b6 Sucessfully intervened!
+b6 Sucessfully intervened!
+b6 Sucessfully intervened!
+b6 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+b7 Sucessfully intervened!
+b7 Sucessfully intervened!
+b7 Sucessfully intervened!
+b7 Sucessfully intervened!
+b7 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+b7 Sucessfully intervened!
+b7 Sucessfully intervened!
+b7 Sucessfully intervened!
+b7 Sucessfully intervened!
+b7 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'f4', 'g6', 'g8', 'h8']
+b8 Sucessfully intervened!
+b8 Sucessfully intervened!
+b8 Sucessfully intervened!
+b8 Sucessfully intervened!
+b8 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+b8 Sucessfully intervened!
+b8 Sucessfully intervened!
+b8 Sucessfully intervened!
+b8 Sucessfully intervened!
+b8 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+c1 Sucessfully intervened!
+c1 Sucessfully intervened!
+c1 Sucessfully intervened!
+c1 Sucessfully intervened!
+c1 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+c1 Sucessfully intervened!
+c1 Sucessfully intervened!
+c1 Sucessfully intervened!
+c1 Sucessfully intervened!
+c1 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+c2 Sucessfully intervened!
+c2 Sucessfully intervened!
+c2 Sucessfully intervened!
+c2 Sucessfully intervened!
+c2 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c2', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+c2 Sucessfully intervened!
+c2 Sucessfully intervened!
+c2 Sucessfully intervened!
+c2 Sucessfully intervened!
+c2 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8']
+c3 Sucessfully intervened!
+c3 Sucessfully intervened!
+c3 Sucessfully intervened!
+c3 Sucessfully intervened!
+c3 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+c3 Sucessfully intervened!
+c3 Sucessfully intervened!
+c3 Sucessfully intervened!
+c3 Sucessfully intervened!
+c3 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b3', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+c4 Sucessfully intervened!
+c4 Sucessfully intervened!
+c4 Sucessfully intervened!
+c4 Sucessfully intervened!
+c4 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+c4 Sucessfully intervened!
+c4 Sucessfully intervened!
+c4 Sucessfully intervened!
+c4 Sucessfully intervened!
+c4 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'b5', 'b6', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+c5 Sucessfully intervened!
+c5 Sucessfully intervened!
+c5 Sucessfully intervened!
+c5 Sucessfully intervened!
+c5 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c5', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+c5 Sucessfully intervened!
+c5 Sucessfully intervened!
+c5 Sucessfully intervened!
+c5 Sucessfully intervened!
+c5 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c8', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+c6 Sucessfully intervened!
+c6 Sucessfully intervened!
+c6 Sucessfully intervened!
+c6 Sucessfully intervened!
+c6 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'b6', 'b7', 'c8', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+c6 Sucessfully intervened!
+c6 Sucessfully intervened!
+c6 Sucessfully intervened!
+c6 Sucessfully intervened!
+c6 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+c7 Sucessfully intervened!
+c7 Sucessfully intervened!
+c7 Sucessfully intervened!
+c7 Sucessfully intervened!
+c7 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'f4', 'g6', 'g8', 'h8']
+c7 Sucessfully intervened!
+c7 Sucessfully intervened!
+c7 Sucessfully intervened!
+c7 Sucessfully intervened!
+c7 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+c8 Sucessfully intervened!
+c8 Sucessfully intervened!
+c8 Sucessfully intervened!
+c8 Sucessfully intervened!
+c8 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+c8 Sucessfully intervened!
+c8 Sucessfully intervened!
+c8 Sucessfully intervened!
+c8 Sucessfully intervened!
+c8 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b1', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+d1 Sucessfully intervened!
+d1 Sucessfully intervened!
+d1 Sucessfully intervened!
+d1 Sucessfully intervened!
+d1 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+d1 Sucessfully intervened!
+d1 Sucessfully intervened!
+d1 Sucessfully intervened!
+d1 Sucessfully intervened!
+d1 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'c6', 'd3', 'd7', 'e2', 'e8', 'g6', 'g8', 'h8']
+d2 Sucessfully intervened!
+d2 Sucessfully intervened!
+d2 Sucessfully intervened!
+d2 Sucessfully intervened!
+d2 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+d2 Sucessfully intervened!
+d2 Sucessfully intervened!
+d2 Sucessfully intervened!
+d2 Sucessfully intervened!
+d2 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b3', 'b4', 'c6', 'd7', 'e8', 'g6', 'g8', 'h8']
+d3 Sucessfully intervened!
+d3 Sucessfully intervened!
+d3 Sucessfully intervened!
+d3 Sucessfully intervened!
+d3 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b3', 'b4', 'c6', 'd7', 'e2', 'e8', 'g6', 'g8', 'h8']
+d3 Sucessfully intervened!
+d3 Sucessfully intervened!
+d3 Sucessfully intervened!
+d3 Sucessfully intervened!
+d3 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd4', 'd7', 'e8', 'g6', 'g8']
+d4 Failed intervention! See the below two borads:
+labels_post_intv_reality
+--------------------
+[]
+a   X O          
+b   X            
+c O X O X X   O  
+d   X   X X O    
+e     X X O X O  
+f   X     X O O O
+g             O  
+h                
+  1 2 3 4 5 6 7 8
+--------------------
+labels_post_intv_wished
+--------------------
+[]
+a   X O          
+b   X            
+c O X O X X   O  
+d   X     X O    
+e     X X O X O  
+f   X     X O O O
+g             O  
+h                
+  1 2 3 4 5 6 7 8
+--------------------
+d4 Failed intervention! See the below two borads:
+labels_post_intv_reality
+--------------------
+[]
+a   X O          
+b   X       X    
+c O X X X X   O  
+d O X   X X O   X
+e     X X O X O X
+f X X O O X O O O
+g       X     O  
+h       X        
+  1 2 3 4 5 6 7 8
+--------------------
+labels_post_intv_wished
+--------------------
+[]
+a   X O          
+b   X       X    
+c O X X X X   O  
+d O X     X O   X
+e     X X O X O X
+f X X O O X O O O
+g       X     O  
+h       X        
+  1 2 3 4 5 6 7 8
+--------------------
+d4 Failed intervention! See the below two borads:
+labels_post_intv_reality
+--------------------
+[]
+a   X O   O   X  
+b   O            
+c O O O O X   O  
+d   X   X X O   X
+e     X X O X X O
+f O O     X O O O
+g             O  
+h       X        
+  1 2 3 4 5 6 7 8
+--------------------
+labels_post_intv_wished
+--------------------
+[]
+a   X O   O   X  
+b   O            
+c O O O O X   O  
+d   X     X O   X
+e     X X O X X O
+f O O     X O O O
+g             O  
+h       X        
+  1 2 3 4 5 6 7 8
+--------------------
+d4 Failed intervention! See the below two borads:
+labels_post_intv_reality
+--------------------
+[]
+a   X O          
+b     O          
+c O X O O X      
+d   O   O O O    
+e     X X X X O O
+f   O       O X O
+g       X        
+h       X        
+  1 2 3 4 5 6 7 8
+--------------------
+labels_post_intv_wished
+--------------------
+[]
+a   X O          
+b     O          
+c O X O O X      
+d   O     O O    
+e     X X X X O O
+f   O       O X O
+g       X        
+h       X        
+  1 2 3 4 5 6 7 8
+--------------------
+d4 Failed intervention! See the below two borads:
+labels_post_intv_reality
+--------------------
+[]
+a   X O         O
+b     X     O    
+c O X X X O   X O
+d   X   O X X   O
+e     X X O X O O
+f   O       O O O
+g                
+h       X        
+  1 2 3 4 5 6 7 8
+--------------------
+labels_post_intv_wished
+--------------------
+[]
+a   X O         O
+b     X     O    
+c O X X X O   X O
+d   X     X X   O
+e     X X O X O O
+f   O       O O O
+g                
+h       X        
+  1 2 3 4 5 6 7 8
+--------------------
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd7', 'e8', 'g6', 'g8', 'h8']
+d4 Sucessfully intervened!
+d4 Sucessfully intervened!
+d4 Sucessfully intervened!
+d4 Sucessfully intervened!
+d4 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'e8', 'g6', 'g8', 'h8']
+d5 Sucessfully intervened!
+d5 Sucessfully intervened!
+d5 Sucessfully intervened!
+d5 Sucessfully intervened!
+d5 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd5', 'e8', 'g6', 'g8', 'h8']
+d5 Failed intervention! See the below two borads:
+labels_post_intv_reality
+--------------------
+[]
+a   X O          
+b   X            
+c O X O X X   O  
+d   X   O X O    
+e     X X O X O  
+f   X     X O O O
+g             O  
+h                
+  1 2 3 4 5 6 7 8
+--------------------
+labels_post_intv_wished
+--------------------
+[]
+a   X O          
+b   X            
+c O X O X X   O  
+d   X   O   O    
+e     X X O X O  
+f   X     X O O O
+g             O  
+h                
+  1 2 3 4 5 6 7 8
+--------------------
+d5 Failed intervention! See the below two borads:
+labels_post_intv_reality
+--------------------
+[]
+a   X O          
+b   X            
+c O X X X X   O  
+d O X   O X O   X
+e     X X O X O  
+f X X   X X O O O
+g       X     O  
+h       X        
+  1 2 3 4 5 6 7 8
+--------------------
+labels_post_intv_wished
+--------------------
+[]
+a   X O          
+b   X            
+c O X X X X   O  
+d O X   O   O   X
+e     X X O X O  
+f X X   X X O O O
+g       X     O  
+h       X        
+  1 2 3 4 5 6 7 8
+--------------------
+d5 Failed intervention! See the below two borads:
+labels_post_intv_reality
+--------------------
+[]
+a   X O          
+b   X            
+c O   O X X   O  
+d       O O O    
+e     X O O X X  
+f O O     X O O O
+g       X        
+h                
+  1 2 3 4 5 6 7 8
+--------------------
+labels_post_intv_wished
+--------------------
+[]
+a   X O          
+b   X            
+c O   O X X   O  
+d       O   O    
+e     X O O X X  
+f O O     X O O O
+g       X        
+h                
+  1 2 3 4 5 6 7 8
+--------------------
+d5 Failed intervention! See the below two borads:
+labels_post_intv_reality
+--------------------
+[]
+a   X O          
+b   X X         X
+c O X O O X      
+d       X X O    
+e     X O O X O  
+f O O       O X O
+g       X        
+h       X        
+  1 2 3 4 5 6 7 8
+--------------------
+labels_post_intv_wished
+--------------------
+[]
+a   X O          
+b   X X         X
+c O X O O X      
+d       X   O    
+e     X O O X O  
+f O O       O X O
+g       X        
+h       X        
+  1 2 3 4 5 6 7 8
+--------------------
+d5 Failed intervention! See the below two borads:
+labels_post_intv_reality
+--------------------
+[]
+a   X X     X    
+b   X X   O     X
+c X   O O X   X X
+d       O X X    
+e     X O O X X X
+f X O     O O X X
+g               X
+h       O        
+  1 2 3 4 5 6 7 8
+--------------------
+labels_post_intv_wished
+--------------------
+[]
+a   X X     X    
+b   X X   O     X
+c X   O O X   X X
+d       O   X    
+e     X O O X X X
+f X O     O O X X
+g               X
+h       O        
+  1 2 3 4 5 6 7 8
+--------------------
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'd3', 'e8', 'g6', 'g8', 'h8']
+d6 Sucessfully intervened!
+d6 Sucessfully intervened!
+d6 Sucessfully intervened!
+d6 Sucessfully intervened!
+d6 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'b8', 'd3', 'e8', 'f4', 'g6', 'g8', 'h8']
+d6 Sucessfully intervened!
+d6 Sucessfully intervened!
+d6 Sucessfully intervened!
+d6 Sucessfully intervened!
+d6 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'b7', 'c6', 'd3', 'e8', 'g6', 'g8', 'h7', 'h8']
+d7 Sucessfully intervened!
+d7 Sucessfully intervened!
+d7 Sucessfully intervened!
+d7 Sucessfully intervened!
+d7 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'c8', 'd3', 'd8', 'e8', 'g6', 'g8', 'h8']
+d7 Sucessfully intervened!
+d7 Sucessfully intervened!
+d7 Sucessfully intervened!
+d7 Sucessfully intervened!
+d7 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'b6', 'c6', 'd3', 'd7', 'e8', 'g5', 'g6', 'g8', 'h8']
+d8 Sucessfully intervened!
+d8 Sucessfully intervened!
+d8 Sucessfully intervened!
+d8 Sucessfully intervened!
+d8 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+d8 Sucessfully intervened!
+d8 Sucessfully intervened!
+d8 Sucessfully intervened!
+d8 Sucessfully intervened!
+d8 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+e1 Sucessfully intervened!
+e1 Sucessfully intervened!
+e1 Sucessfully intervened!
+e1 Sucessfully intervened!
+e1 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+e1 Sucessfully intervened!
+e1 Sucessfully intervened!
+e1 Sucessfully intervened!
+e1 Sucessfully intervened!
+e1 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+e2 Sucessfully intervened!
+e2 Sucessfully intervened!
+e2 Sucessfully intervened!
+e2 Sucessfully intervened!
+e2 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e1', 'e8', 'g6', 'g8', 'h8']
+e2 Sucessfully intervened!
+e2 Sucessfully intervened!
+e2 Sucessfully intervened!
+e2 Sucessfully intervened!
+e2 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e2', 'e8', 'f4', 'g6', 'g8', 'h8']
+e3 Sucessfully intervened!
+e3 Sucessfully intervened!
+e3 Sucessfully intervened!
+e3 Sucessfully intervened!
+e3 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e3', 'e8', 'g6', 'g8', 'h8']
+e3 Sucessfully intervened!
+e3 Sucessfully intervened!
+e3 Sucessfully intervened!
+e3 Sucessfully intervened!
+e3 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'f3', 'f4', 'g6', 'g8', 'h8']
+e4 Sucessfully intervened!
+e4 Sucessfully intervened!
+e4 Sucessfully intervened!
+e4 Sucessfully intervened!
+e4 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e4', 'e8', 'g6', 'g8', 'h8']
+e4 Failed intervention! See the below two borads:
+labels_post_intv_reality
+--------------------
+[]
+a   X O          
+b   X            
+c O X O X X   O  
+d   X   O X O    
+e     X O O X O  
+f   X     X O O O
+g             O  
+h                
+  1 2 3 4 5 6 7 8
+--------------------
+labels_post_intv_wished
+--------------------
+[]
+a   X O          
+b   X            
+c O X O X X   O  
+d   X   O X O    
+e     X   O X O  
+f   X     X O O O
+g             O  
+h                
+  1 2 3 4 5 6 7 8
+--------------------
+e4 Failed intervention! See the below two borads:
+labels_post_intv_reality
+--------------------
+[]
+a   X O     X    
+b   X       X    
+c O X X X X   O  
+d O X   O X O    
+e X   X X O X O  
+f X X     X O O O
+g       X     O  
+h       X        
+  1 2 3 4 5 6 7 8
+--------------------
+labels_post_intv_wished
+--------------------
+[]
+a   X O     X    
+b   X       X    
+c O X X X X   O  
+d O X   O X O    
+e X   X   O X O  
+f X X     X O O O
+g       X     O  
+h       X        
+  1 2 3 4 5 6 7 8
+--------------------
+e4 Failed intervention! See the below two borads:
+labels_post_intv_reality
+--------------------
+[]
+a   X O     O X  
+b   O       O    
+c O O O X X   O  
+d   X   O X O    
+e     X O O X O  
+f O O       O O O
+g O           X  
+h                
+  1 2 3 4 5 6 7 8
+--------------------
+labels_post_intv_wished
+--------------------
+[]
+a   X O     O X  
+b   O       O    
+c O O O X X   O  
+d   X   O X O    
+e     X   O X O  
+f O O       O O O
+g O           X  
+h                
+  1 2 3 4 5 6 7 8
+--------------------
+e4 Failed intervention! See the below two borads:
+labels_post_intv_reality
+--------------------
+[]
+a   O O X     X  
+b   O O     X X  
+c   X O O X   O  
+d   X   X X O    
+e     X O O X X  
+f   X       O X O
+g       X     X  
+h     O          
+  1 2 3 4 5 6 7 8
+--------------------
+labels_post_intv_wished
+--------------------
+[]
+a   O O X     X  
+b   O O     X X  
+c   X O O X   O  
+d   O   X X O    
+e     X   O X X  
+f   X       O X O
+g       X     X  
+h     O          
+  1 2 3 4 5 6 7 8
+--------------------
+e4 Failed intervention! See the below two borads:
+labels_post_intv_reality
+--------------------
+[]
+a   O O O   X X  
+b X X X   O O X  
+c X   O O O   X  
+d X X   O X X X  
+e     X O X O X  
+f X O       O X X
+g       O     X  
+h     O       X  
+  1 2 3 4 5 6 7 8
+--------------------
+labels_post_intv_wished
+--------------------
+[]
+a   O X O   X X  
+b X X X   O O X  
+c X   O O O   X  
+d X X   O X X X  
+e     X   O O X  
+f X O       O X X
+g       O     X  
+h     O       X  
+  1 2 3 4 5 6 7 8
+--------------------
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e5', 'e8', 'g6', 'g8']
+e5 Failed intervention! See the below two borads:
+labels_post_intv_reality
+--------------------
+[]
+a   X O          
+b   X            
+c O X O X X   O  
+d   X   O X O    
+e     X X O X O  
+f   X     X O O O
+g             O  
+h                
+  1 2 3 4 5 6 7 8
+--------------------
+labels_post_intv_wished
+--------------------
+[]
+a   X O          
+b   X            
+c O X O X X   O  
+d   X   O X O    
+e     X X   X O  
+f   X     X O O O
+g             O  
+h                
+  1 2 3 4 5 6 7 8
+--------------------
+e5 Failed intervention! See the below two borads:
+labels_post_intv_reality
+--------------------
+[]
+a   X O          
+b   X            
+c O X X X X   O  
+d O X   O X O   X
+e     X X O X O  
+f X X   O X O O O
+g       X     O  
+h       X        
+  1 2 3 4 5 6 7 8
+--------------------
+labels_post_intv_wished
+--------------------
+[]
+a   X O          
+b   X            
+c O X X X X   O  
+d O X   O X O   X
+e     X X   X O  
+f X X   O X O O O
+g       X     O  
+h       X        
+  1 2 3 4 5 6 7 8
+--------------------
+e5 Failed intervention! See the below two borads:
+labels_post_intv_reality
+--------------------
+[]
+a   X X          
+b   O            
+c O   O X X   O O
+d   X   O O O   X
+e     X O O X X  
+f O O     X O O O
+g       X        
+h       O        
+  1 2 3 4 5 6 7 8
+--------------------
+labels_post_intv_wished
+--------------------
+[]
+a   X X          
+b   O            
+c O   O X X   O O
+d   X   O O O   X
+e     X O   X X  
+f O O     X O O O
+g       X        
+h       O        
+  1 2 3 4 5 6 7 8
+--------------------
+e5 Failed intervention! See the below two borads:
+labels_post_intv_reality
+--------------------
+[]
+a   X O          
+b   O X       X  
+c     O O O   X X
+d   X   X O O    
+e     X X O X O  
+f   O     O X X  
+g       O        
+h X   X X        
+  1 2 3 4 5 6 7 8
+--------------------
+labels_post_intv_wished
+--------------------
+[]
+a   X O          
+b   O X       X  
+c     O O O   X X
+d   X   X O O    
+e     X X   O O  
+f   O     O X X X
+g       O        
+h X   X O        
+  1 2 3 4 5 6 7 8
+--------------------
+e5 Failed intervention! See the below two borads:
+labels_post_intv_reality
+--------------------
+[]
+a   O   X       X
+b   O O   X   X X
+c X   O O O   X O
+d   O   O O X   X
+e     X X X O X X
+f   O     O X X X
+g   O   O        
+h X O X X     X  
+  1 2 3 4 5 6 7 8
+--------------------
+labels_post_intv_wished
+--------------------
+[]
+a   O X X       X
+b   O O   X   X X
+c X   O O O   X O
+d   O   O O X   X
+e     X X   X X X
+f   O     O X X X
+g   O   O        
+h X O X X     X  
+  1 2 3 4 5 6 7 8
+--------------------
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'b8', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+e5 Sucessfully intervened!
+e5 Sucessfully intervened!
+e5 Sucessfully intervened!
+e5 Sucessfully intervened!
+e5 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'd3', 'd7', 'e8', 'g8', 'h8']
+e6 Sucessfully intervened!
+e6 Sucessfully intervened!
+e6 Sucessfully intervened!
+e6 Sucessfully intervened!
+e6 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'd3', 'd7', 'e6', 'h8']
+e6 Sucessfully intervened!
+e6 Sucessfully intervened!
+e6 Sucessfully intervened!
+e6 Sucessfully intervened!
+e6 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e7', 'g6', 'g8', 'h8']
+e7 Sucessfully intervened!
+e7 Sucessfully intervened!
+e7 Sucessfully intervened!
+e7 Sucessfully intervened!
+e7 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'g5', 'g6', 'g8', 'h7', 'h8']
+e7 Sucessfully intervened!
+e7 Sucessfully intervened!
+e7 Sucessfully intervened!
+e7 Sucessfully intervened!
+e7 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'g6', 'g8', 'h8']
+e8 Sucessfully intervened!
+e8 Sucessfully intervened!
+e8 Sucessfully intervened!
+e8 Sucessfully intervened!
+e8 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'g6', 'g8', 'h8']
+e8 Sucessfully intervened!
+e8 Sucessfully intervened!
+e8 Sucessfully intervened!
+e8 Sucessfully intervened!
+e8 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+f1 Sucessfully intervened!
+f1 Sucessfully intervened!
+f1 Sucessfully intervened!
+f1 Sucessfully intervened!
+f1 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+f1 Sucessfully intervened!
+f1 Sucessfully intervened!
+f1 Sucessfully intervened!
+f1 Sucessfully intervened!
+f1 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g1', 'g6', 'g8', 'h8']
+f2 Sucessfully intervened!
+f2 Sucessfully intervened!
+f2 Sucessfully intervened!
+f2 Sucessfully intervened!
+f2 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+f2 Sucessfully intervened!
+f2 Sucessfully intervened!
+f2 Sucessfully intervened!
+f2 Sucessfully intervened!
+f2 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+f3 Sucessfully intervened!
+f3 Sucessfully intervened!
+f3 Sucessfully intervened!
+f3 Sucessfully intervened!
+f3 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'f4', 'g2', 'g3', 'g6', 'g8', 'h8']
+f3 Sucessfully intervened!
+f3 Sucessfully intervened!
+f3 Sucessfully intervened!
+f3 Sucessfully intervened!
+f3 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'b8', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+f4 Sucessfully intervened!
+f4 Sucessfully intervened!
+f4 Sucessfully intervened!
+f4 Sucessfully intervened!
+f4 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'f3', 'g4', 'g5', 'g6', 'g8', 'h8']
+f4 Sucessfully intervened!
+f4 Sucessfully intervened!
+f4 Sucessfully intervened!
+f4 Sucessfully intervened!
+f4 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g4', 'g5', 'g6', 'g8', 'h8']
+f5 Sucessfully intervened!
+f5 Sucessfully intervened!
+f5 Sucessfully intervened!
+f5 Sucessfully intervened!
+f5 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'f5', 'g6', 'g8', 'h8']
+f5 Sucessfully intervened!
+f5 Sucessfully intervened!
+f5 Sucessfully intervened!
+f5 Sucessfully intervened!
+f5 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'f6', 'g8']
+f6 Sucessfully intervened!
+f6 Sucessfully intervened!
+f6 Sucessfully intervened!
+f6 Sucessfully intervened!
+f6 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'd8', 'e8', 'g8', 'h8']
+f6 Sucessfully intervened!
+f6 Sucessfully intervened!
+f6 Sucessfully intervened!
+f6 Sucessfully intervened!
+f6 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'f7', 'g6', 'h8']
+f7 Sucessfully intervened!
+f7 Sucessfully intervened!
+f7 Sucessfully intervened!
+f7 Sucessfully intervened!
+f7 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'h7', 'h8']
+f7 Sucessfully intervened!
+f7 Sucessfully intervened!
+f7 Sucessfully intervened!
+f7 Sucessfully intervened!
+f7 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'f8', 'g6', 'g8', 'h8']
+f8 Sucessfully intervened!
+f8 Sucessfully intervened!
+f8 Sucessfully intervened!
+f8 Sucessfully intervened!
+f8 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h6', 'h8']
+f8 Sucessfully intervened!
+f8 Sucessfully intervened!
+f8 Sucessfully intervened!
+f8 Sucessfully intervened!
+f8 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+g1 Sucessfully intervened!
+g1 Sucessfully intervened!
+g1 Sucessfully intervened!
+g1 Sucessfully intervened!
+g1 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+g1 Sucessfully intervened!
+g1 Sucessfully intervened!
+g1 Sucessfully intervened!
+g1 Sucessfully intervened!
+g1 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+g2 Sucessfully intervened!
+g2 Sucessfully intervened!
+g2 Sucessfully intervened!
+g2 Sucessfully intervened!
+g2 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h2', 'h8']
+g2 Sucessfully intervened!
+g2 Sucessfully intervened!
+g2 Sucessfully intervened!
+g2 Sucessfully intervened!
+g2 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+g3 Sucessfully intervened!
+g3 Sucessfully intervened!
+g3 Sucessfully intervened!
+g3 Sucessfully intervened!
+g3 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h4', 'h8']
+g3 Sucessfully intervened!
+g3 Sucessfully intervened!
+g3 Sucessfully intervened!
+g3 Sucessfully intervened!
+g3 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+g4 Sucessfully intervened!
+g4 Sucessfully intervened!
+g4 Sucessfully intervened!
+g4 Sucessfully intervened!
+g4 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h3', 'h8']
+g4 Sucessfully intervened!
+g4 Sucessfully intervened!
+g4 Sucessfully intervened!
+g4 Sucessfully intervened!
+g4 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'd8', 'e8', 'g6', 'g8', 'h8']
+g5 Sucessfully intervened!
+g5 Sucessfully intervened!
+g5 Sucessfully intervened!
+g5 Sucessfully intervened!
+g5 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h5', 'h8']
+g5 Sucessfully intervened!
+g5 Sucessfully intervened!
+g5 Sucessfully intervened!
+g5 Sucessfully intervened!
+g5 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g8', 'h8']
+g6 Sucessfully intervened!
+g6 Sucessfully intervened!
+g6 Sucessfully intervened!
+g6 Sucessfully intervened!
+g6 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g8', 'h6', 'h7', 'h8']
+g6 Sucessfully intervened!
+g6 Sucessfully intervened!
+g6 Sucessfully intervened!
+g6 Sucessfully intervened!
+g6 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g7', 'g8']
+g7 Sucessfully intervened!
+g7 Sucessfully intervened!
+g7 Sucessfully intervened!
+g7 Sucessfully intervened!
+g7 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8']
+g7 Sucessfully intervened!
+g7 Sucessfully intervened!
+g7 Sucessfully intervened!
+g7 Sucessfully intervened!
+g7 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'h8']
+g8 Sucessfully intervened!
+g8 Sucessfully intervened!
+g8 Sucessfully intervened!
+g8 Sucessfully intervened!
+g8 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'h8']
+g8 Sucessfully intervened!
+g8 Sucessfully intervened!
+g8 Sucessfully intervened!
+g8 Sucessfully intervened!
+g8 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+h1 Sucessfully intervened!
+h1 Sucessfully intervened!
+h1 Sucessfully intervened!
+h1 Sucessfully intervened!
+h1 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+h1 Sucessfully intervened!
+h1 Sucessfully intervened!
+h1 Sucessfully intervened!
+h1 Sucessfully intervened!
+h1 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+h2 Sucessfully intervened!
+h2 Sucessfully intervened!
+h2 Sucessfully intervened!
+h2 Sucessfully intervened!
+h2 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+h2 Sucessfully intervened!
+h2 Sucessfully intervened!
+h2 Sucessfully intervened!
+h2 Sucessfully intervened!
+h2 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+h3 Sucessfully intervened!
+h3 Sucessfully intervened!
+h3 Sucessfully intervened!
+h3 Sucessfully intervened!
+h3 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+h3 Sucessfully intervened!
+h3 Sucessfully intervened!
+h3 Sucessfully intervened!
+h3 Sucessfully intervened!
+h3 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+h4 Sucessfully intervened!
+h4 Sucessfully intervened!
+h4 Sucessfully intervened!
+h4 Sucessfully intervened!
+h4 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+h4 Sucessfully intervened!
+h4 Sucessfully intervened!
+h4 Sucessfully intervened!
+h4 Sucessfully intervened!
+h4 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+h5 Sucessfully intervened!
+h5 Sucessfully intervened!
+h5 Sucessfully intervened!
+h5 Sucessfully intervened!
+h5 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+h5 Sucessfully intervened!
+h5 Sucessfully intervened!
+h5 Sucessfully intervened!
+h5 Sucessfully intervened!
+h5 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+h6 Sucessfully intervened!
+h6 Sucessfully intervened!
+h6 Sucessfully intervened!
+h6 Sucessfully intervened!
+h6 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+h6 Sucessfully intervened!
+h6 Sucessfully intervened!
+h6 Sucessfully intervened!
+h6 Sucessfully intervened!
+h6 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+h7 Sucessfully intervened!
+h7 Sucessfully intervened!
+h7 Sucessfully intervened!
+h7 Sucessfully intervened!
+h7 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+h7 Sucessfully intervened!
+h7 Sucessfully intervened!
+h7 Sucessfully intervened!
+h7 Sucessfully intervened!
+h7 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8']
+h8 Sucessfully intervened!
+h8 Sucessfully intervened!
+h8 Sucessfully intervened!
+h8 Sucessfully intervened!
+h8 Sucessfully intervened!
+Dataset created has 8 sequences, 61 unique words.
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8', 'h8']
+['a4', 'b4', 'c6', 'd3', 'd7', 'e8', 'g6', 'g8']
+h8 Sucessfully intervened!
+h8 Sucessfully intervened!
+h8 Sucessfully intervened!
+h8 Sucessfully intervened!
+h8 Sucessfully intervened!
