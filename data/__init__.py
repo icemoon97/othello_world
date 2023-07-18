@@ -5,7 +5,7 @@ import torch
 vv = .2
 
 def plot_probs(ax, probs, valids):
-    assert probs.numel() == 64
+    assert probs.size == 64
     probs = probs.detach().cpu().numpy().reshape(8, 8)
     annot = [f"{_:.2f}" for _ in probs.flatten().tolist()]
     for valid_index in valids:
