@@ -59,7 +59,7 @@ parser.add_argument('--exp',
 
 args, _ = parser.parse_known_args()
 
-folder_name = f"bias/probes/{args.exp}"
+folder_name = f"bias/finetune/probes/{args.exp}"
 
 if args.twolayer:
     folder_name = folder_name + f"_tl{args.mid_dim}"  # tl for probes without batchnorm
