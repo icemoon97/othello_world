@@ -55,9 +55,6 @@ class Trainer:
         self.test_loss_cont = []
         self.train_acc_cont = []
         self.test_acc_cont = []
-        # would be a list of T-long, each is a lits of 60-long, for stratified accuracies        
-        self.train_strat_acc_cont = []
-        self.test_strat_acc_cont = []
         
     def flush_plot(self, ):
         # plt.close()
@@ -77,7 +74,6 @@ class Trainer:
         tbd = {
             "train_loss_cont": self.train_loss_cont, "test_loss_cont" :self.test_loss_cont, 
             "train_acc_cont": self.train_acc_cont, "test_acc_cont": self.test_acc_cont, 
-            "train_strat_acc_cont": self.train_strat_acc_cont, "test_strat_acc_cont": self.test_strat_acc_cont, 
         }
         with open(os.path.join(self.config.ckpt_path, "tensorboard.txt"), "w") as f:
             f.write(json.dumps(tbd) + "\n")
@@ -103,23 +99,19 @@ class Trainer:
                                 num_workers=config.num_workers)
 
             losses = []
-            totals_epoch = np.zeros(60, dtype=float)  # np.array of shape [60], for positions of age 0 to 59
-            hits_epoch = np.zeros(60, dtype=float)  # np.array of shape [60], for positions of age 0 to 59
             pbar = tqdm(enumerate(loader), total=len(loader), disable=not prt) if is_train else enumerate(loader)
-            for it, (x, y, age) in pbar:
+            for it, (x, y) in pbar:
                 x = x.to(self.device)  # [B, f]
-                y = y.to(self.device)  # [B, #task=64] 
-                age = age.to(self.device)  # [B, #task=64], in 0--59
+                y = y.to(self.device)  # [B, #task] 
 
                 with torch.set_grad_enabled(is_train):
                     logits, loss = model(x, y)
                     loss = loss.mean() # collapse all losses if they are scattered on multiple gpus
                     losses.append(loss.item())
-                    totals_epoch += np.array([torch.sum(age == i).item() for i in range(60)]).astype(float)
+
                     y_hat = torch.argmax(logits, dim=-1, keepdim=False)  # [B, #task]
                     hits = y_hat == y  # [B, #task]
-                    hits_epoch += np.array([torch.sum(hits * (age == i)).item() for i in range(60)]).astype(float)
-                    
+
                 if is_train:
                     # backprop and update the parameters
                     model.zero_grad()
@@ -127,23 +119,24 @@ class Trainer:
                     torch.nn.utils.clip_grad_norm_(model.parameters(), config.grad_norm_clip)
                     optimizer.step()
                     mean_loss = float(np.mean(losses))
-                    mean_acc = np.sum(hits_epoch).item() / np.sum(totals_epoch).item()
+                    # mean_acc = np.sum(hits_epoch).item() / np.sum(totals_epoch).item()
+                    mean_acc = hits.sum().item() / hits.numel()
                     lr = optimizer.param_groups[0]['lr']
                     pbar.set_description(f"epoch {epoch+1}: train loss {mean_loss:.5f}; lr {lr:.2e}; train acc {mean_acc*100:.2f}%")
+                    
             if is_train:
                 self.train_loss_cont.append(mean_loss)
                 self.train_acc_cont.append(mean_acc)
-                self.train_strat_acc_cont.append((hits_epoch / totals_epoch).tolist())
 
             if not is_train:
                 test_loss = float(np.mean(losses))
                 scheduler.step(test_loss)
-                test_acc = np.sum(hits_epoch).item() / np.sum(totals_epoch).item()
+                # test_acc = np.sum(hits_epoch).item() / np.sum(totals_epoch).item()
+                test_acc = hits.sum().item() / hits.numel()
                 if prt: 
                     logger.info(f"test loss {test_loss:.5f}; test acc {test_acc*100:.2f}%")
                 self.test_loss_cont.append(test_loss)
                 self.test_acc_cont.append(test_acc)
-                self.test_strat_acc_cont.append((hits_epoch / totals_epoch).tolist())
                 return test_loss
 
         best_loss = float('inf')

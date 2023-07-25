@@ -463,20 +463,18 @@ class OthelloBoardState():
         return container
 
 if __name__ == "__main__":
-    # o = Othello(data_root="othello_championship", championship=True)
-    # o = Othello(data_root="othello_synthetic", n_games=-1)
+    # generate_synthetic(40000, data_root="othello_1player")
+    o = Othello(data_root="othello_1player", n_games=-1, test_split=0.5, deduplicate=False)
 
-    # generate_synthetic(10000, data_root="othello_BRbias80")
-    # o = Othello(data_root="othello_BRbias80", n_games=-1)
+    print(np.unique(np.array([p[0] for p in o]), return_counts=True))
 
-    # generate_synthetic(1000, data_root="othello_1player")
-    # o = Othello(data_root="othello_1player", n_games=-1, test_split=0.5)
-
-    # player_types = [p[0] for p in o]
-    # print(np.unique(np.array(player_types), return_counts=True))
-
-    for i in range(35):
-        generate_synthetic(100000, data_root="othello_1player")
+    # t_start = time.strftime("_%Y%m%d_%H%M%S")
+    # for i in range(50):
+    #     seq = o[i*100000:(i+1)*100000]
+    #     path = f"data/1player/gen10e5_{t_start}_{i}.pickle"
+    #     print(f"saving {len(seq)} synthetic games to {path}")
+    #     with open(path, 'wb') as handle:
+    #         pickle.dump(seq, handle, protocol=pickle.HIGHEST_PROTOCOL)
     
     pass
 
