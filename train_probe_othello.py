@@ -105,8 +105,18 @@ for i, (x, y) in tqdm(enumerate(loader), total=len(loader)):
                 fixed_state = 2 - fixed_state
             properties.append(fixed_state)
 
-    elif args.type == "player":
-        properties = [[player_types[i]] for _ in range(len(tbf[:valid_until]))]
+    # elif args.type == "player":
+    #     properties = [[player_types[i]] for _ in range(len(tbf[:valid_until]))]
+    
+
+    else:
+        properties = []
+        ob = OthelloBoardState()
+        for i, move in enumerate(tbf[:valid_until]):
+            ob.update([move])
+
+            properties.append([ob.get_next_hand_color()])
+
     property_container.extend(properties)
 
     # gets activations for each move
@@ -124,7 +134,9 @@ elif args.type == "player":
     probe_class = 4
     num_task = 1
 else:
-    raise Exception("invalid probe type given")
+    # raise Exception("invalid probe type given")
+    probe_class = 2
+    num_task = 1
 
 if args.twolayer:
     probe = BatteryProbeClassificationTwoLayer(device, probe_class=probe_class, num_task=num_task, mid_dim=args.mid_dim)
