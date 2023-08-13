@@ -49,13 +49,14 @@ parser.add_argument('--ckpt',
 
 # should be "state" for board state probe
 # or "player" for player type probe
+# or "turn" for turn probe
 parser.add_argument('--type',
                     default="state", 
                     type=str)
 
 args, _ = parser.parse_known_args()
 
-folder_name = f"bias/probes/{args.type}"
+folder_name = f"playertype/probes/{args.type}"
 
 if args.twolayer:
     folder_name = folder_name + f"_tl{args.mid_dim}"  # tl for probes without batchnorm
@@ -63,11 +64,11 @@ if args.random:
     folder_name = folder_name + "_random"
 
 print(f"Running experiment for {folder_name}")
-othello = Othello(data_root="othello_synthetic", n_games=10000, deduplicate=False, test_split=0)
+othello = Othello(data_root="othello_1player", n_games=10000, deduplicate=False, test_split=0)
 
-# player_types, games = zip(*othello)
-# train_dataset = CharDataset(games)
-train_dataset = CharDataset(othello)
+player_types, games = zip(*othello)
+train_dataset = CharDataset(games)
+# train_dataset = CharDataset(othello)
 
 mconf = GPTConfig(train_dataset.vocab_size, train_dataset.block_size, n_layer=8, n_head=8, n_embd=512)
 model = GPTforProbing(mconf, probe_layer=args.layer)
@@ -92,9 +93,9 @@ for i, (x, y) in tqdm(enumerate(loader), total=len(loader)):
     # truncates game if it is less than 60 moves
     valid_until = tbf.index(-100) if -100 in tbf else 999
 
+    properties = []
     # get properties (board state or player type)
     if args.type == "state":
-        properties = []
         ob = OthelloBoardState()
         for i, move in enumerate(tbf[:valid_until]):
             ob.update([move])
@@ -108,9 +109,7 @@ for i, (x, y) in tqdm(enumerate(loader), total=len(loader)):
     # elif args.type == "player":
     #     properties = [[player_types[i]] for _ in range(len(tbf[:valid_until]))]
     
-
-    else:
-        properties = []
+    elif args.type == "turn":
         ob = OthelloBoardState()
         for i, move in enumerate(tbf[:valid_until]):
             ob.update([move])
@@ -133,10 +132,11 @@ if args.type == "state":
 elif args.type == "player":
     probe_class = 4
     num_task = 1
-else:
-    # raise Exception("invalid probe type given")
+elif args.type == "turn":
     probe_class = 2
     num_task = 1
+else:
+    raise Exception("invalid probe type given")
 
 if args.twolayer:
     probe = BatteryProbeClassificationTwoLayer(device, probe_class=probe_class, num_task=num_task, mid_dim=args.mid_dim)
