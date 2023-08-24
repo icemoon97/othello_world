@@ -56,7 +56,7 @@ parser.add_argument('--type',
 
 args, _ = parser.parse_known_args()
 
-folder_name = f"playertype/probes/{args.type}"
+folder_name = f"bias/probes/{args.type}"
 
 if args.twolayer:
     folder_name = folder_name + f"_tl{args.mid_dim}"  # tl for probes without batchnorm
@@ -106,8 +106,8 @@ for i, (x, y) in tqdm(enumerate(loader), total=len(loader)):
                 fixed_state = 2 - fixed_state
             properties.append(fixed_state)
 
-    # elif args.type == "player":
-    #     properties = [[player_types[i]] for _ in range(len(tbf[:valid_until]))]
+    elif args.type == "player":
+        properties = [[player_types[i]] for _ in range(len(tbf[:valid_until]))]
     
     elif args.type == "turn":
         ob = OthelloBoardState()
