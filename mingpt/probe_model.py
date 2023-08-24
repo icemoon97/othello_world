@@ -15,6 +15,7 @@ class BatteryProbeClassification(nn.Module):
         self.proj = nn.Linear(self.input_dim, self.probe_class * self.num_task, bias=True)
         self.apply(self._init_weights)
         self.to(device)
+        
     def forward(self, act, y=None):
         # [B, f], [B, #task]
         logits = self.proj(act).reshape(-1, self.num_task, self.probe_class)  # [B, #task, C]
@@ -33,6 +34,7 @@ class BatteryProbeClassification(nn.Module):
         elif isinstance(module, nn.LayerNorm):
             module.bias.data.zero_()
             module.weight.data.fill_(1.0)
+
     def configure_optimizers(self, train_config):
         """
         This long function is unfortunately doing something very simple and is being very defensive:

@@ -113,6 +113,8 @@ class Othello:
         if (deduplicate):
             seq = sorted(self.sequences)
             self.sequences = [k for k, _ in itertools.groupby(seq)]
+            # reshuffle sequences after deduplicating
+            random.shuffle(self.sequences)
             if not quiet: print(f"Deduplicating finished with {len(self.sequences)} games left")
 
         test_size = int(test_split * len(self.sequences))
@@ -165,22 +167,39 @@ class Othello:
     
     def __getitem__(self, i):
         return self.sequences[i]
-    
+
+player_type_sorts = {
+    # type 0: top left bias
+    0: lambda x: (x // 8, x % 8),
+    # type 1: top right bias
+    1: lambda x: (x // 8, -(x % 8)),
+    # type 2: bottom left bias
+    2: lambda x: (-(x // 8), x % 8),
+    # type 3: bottom right bias
+    3: lambda x: (-(x // 8), -(x % 8)),
+}
+
 def get_synthetic_game(_):
+    player_type = random.randint(0, 3)
+
     moves = []
     ob = OthelloBoardState()
     legal_moves = ob.get_valid_moves()
     while legal_moves:
-        # if random.random() < 0.8:
-        #     next_step = legal_moves[-1]
-        # else:
-        #     # uniform random selection
-        #     next_step = random.choice(legal_moves)
-        next_step = random.choice(legal_moves)
+        # choose based on player type
+        if random.random() < 0.8:
+            legal_moves.sort(key=player_type_sorts[player_type])
+            next_step = legal_moves[0]
+        # uniform random selection
+        else:
+            next_step = random.choice(legal_moves)
+
+        # next_step = random.choice(legal_moves)
         moves.append(next_step)
         ob.update([next_step, ])
         legal_moves = ob.get_valid_moves()
-    return moves
+
+    return (player_type, moves)
 
 def generate_synthetic(n, data_root=None):
     data_root = data_root if data_root is not None else default_data
@@ -199,6 +218,8 @@ def generate_synthetic(n, data_root=None):
     
     print(f"generated initial {len(seq)} games. Now deduplicating...")
     seq = [k for k, _ in itertools.groupby(sorted(seq))]
+    # reshuffle sequences after deduplicating
+    random.shuffle(seq)
 
     t_start = time.strftime("_%Y%m%d_%H%M%S")
     path = f"{data_root}/gen10e5_{t_start}.pickle"
@@ -442,11 +463,18 @@ class OthelloBoardState():
         return container
 
 if __name__ == "__main__":
-    # o = Othello(data_root="othello_championship", championship=True)
-    # o = Othello(data_root="othello_synthetic", n_games=-1)
+    # generate_synthetic(40000, data_root="othello_1player")
+    o = Othello(data_root="othello_1player", n_games=-1, test_split=0.5, deduplicate=False)
 
-    # generate_synthetic(10000, data_root="othello_BRbias80")
-    # o = Othello(data_root="othello_BRbias80", n_games=-1)
+    print(np.unique(np.array([p[0] for p in o]), return_counts=True))
+
+    # t_start = time.strftime("_%Y%m%d_%H%M%S")
+    # for i in range(50):
+    #     seq = o[i*100000:(i+1)*100000]
+    #     path = f"data/1player/gen10e5_{t_start}_{i}.pickle"
+    #     print(f"saving {len(seq)} synthetic games to {path}")
+    #     with open(path, 'wb') as handle:
+    #         pickle.dump(seq, handle, protocol=pickle.HIGHEST_PROTOCOL)
     
     pass
 
