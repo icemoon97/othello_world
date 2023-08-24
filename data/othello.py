@@ -26,18 +26,6 @@ mask[4, 3] = 1
 mask[4, 4] = 1
 mask = mask.astype(bool)
 
-class color:
-    PURPLE = '\033[95m'
-    CYAN = '\033[96m'
-    DARKCYAN = '\033[36m'
-    BLUE = '\033[94m'
-    GREEN = '\033[92m'
-    YELLOW = '\033[93m'
-    RED = '\033[91m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
-    END = '\033[0m'
-
 # Othello is a strategy board game for two players (Black and White), played on an 8 by 8 board. 
 # The game traditionally begins with four discs placed in the middle of the board as shown below. Black moves first.
 # W (27) B (28)
@@ -338,49 +326,6 @@ class OthelloBoardState():
         print(" ".join([" "] + tbp))
         print("-"*20)
         
-    def plot_hm(self, ax, heatmap, pdmove, logit=False):
-        padding = np.array([0., 0.])
-        trs = {-1: r'O', 0: " ", 1: r'X'}
-        if len(heatmap) == 60:
-            heatmap = [heatmap[:27], padding, heatmap[27:33], padding, heatmap[33:]]
-            heatmap = np.concatenate(heatmap)
-        assert len(heatmap) == 64
-        heatmap = np.array(heatmap).reshape(8, 8)
-        annot = [trs[_] for _ in self.state.flatten().tolist()]
-        cloned = deepcopy(self)
-        cloned.update([pdmove, ])
-
-        next_color = 1 - cloned.get_next_hand_color()
-        annot[pdmove] = ("\\underline{" + (trs[next_color * 2 -1]) + "}")[-13:]
-
-        color = {-1:'white', 0:'grey', 1:'black'}
-        ann_col = [color[_] for _ in self.state.flatten().tolist()]
-        # ann_col[pdmove] = color[next_color * 2 -1]
-        text_for_next_color = color[next_color * 2 -1].capitalize()
-
-        del cloned
-        if logit:
-            max_logit = np.max(np.abs(heatmap))
-            sns.heatmap(data=heatmap, cbar=False, xticklabels=list(range(1,9)), 
-                        # cmap=LinearSegmentedColormap.from_list("custom_cmap",  ["#D3D3D3", "#3349F2"]),
-                        cmap=sns.color_palette("vlag", as_cmap=True), 
-                        yticklabels=list("ABCDEFGH"), ax=ax, fmt="", square=True, linewidths=.5, vmin=-max_logit, vmax=max_logit, center=0)
-        else:
-            sns.heatmap(data=heatmap, cbar=False, xticklabels=list(range(1,9)),
-                        # cmap=LinearSegmentedColormap.from_list("custom_cmap",  ["#D3D3D3", "#B90E0A"]),
-                        cmap=sns.color_palette("vlag", as_cmap=True), 
-                        yticklabels=list("ABCDEFGH"), ax=ax, fmt="", square=True, linewidths=.5, vmin=-1, vmax=1, center=0)
-        ax.set_title(f"Prediction: {text_for_next_color} at " + permit_reverse(pdmove).upper())
-        ax.add_patch(Rectangle((pdmove%8, pdmove//8), 1, 1, fill=False, edgecolor='black', lw=2))
-
-        patchList = []
-        for loca, col in enumerate(ann_col):
-            if col != 'grey':
-                patchList.append(PatchCollection([mpatches.Circle((loca%8 + 0.5, loca//8 + 0.5) ,.25, facecolor=col)], match_original=True))
-        for i in patchList:
-            ax.add_collection(i)
-        return ax
-        
     def tentative_move(self, move):
         # tentatively put a piece, do nothing to state
         # returns 0 if this is not a move at all: occupied or both player have to forfeit
@@ -463,18 +408,8 @@ class OthelloBoardState():
         return container
 
 if __name__ == "__main__":
-    # generate_synthetic(40000, data_root="othello_1player")
-    o = Othello(data_root="othello_1player", n_games=-1, test_split=0.5, deduplicate=False)
-
-    print(np.unique(np.array([p[0] for p in o]), return_counts=True))
-
-    # t_start = time.strftime("_%Y%m%d_%H%M%S")
-    # for i in range(50):
-    #     seq = o[i*100000:(i+1)*100000]
-    #     path = f"data/1player/gen10e5_{t_start}_{i}.pickle"
-    #     print(f"saving {len(seq)} synthetic games to {path}")
-    #     with open(path, 'wb') as handle:
-    #         pickle.dump(seq, handle, protocol=pickle.HIGHEST_PROTOCOL)
+    # o = Othello(data_root="othello_championship", championship=True)
+    # o = Othello(data_root="othello_synthetic", n_games=-1)
     
     pass
 
