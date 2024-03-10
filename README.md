@@ -38,9 +38,13 @@ See `train_othello_model.ipynb`. For this project, training used 4 GPUs and took
 See `train_probe_othello.py`. It contains flags to train probes for board state, current turn, or playertype (only valid on model trained with synthetic playertype data).
 
 ### Interventions
-See `interventions.ipynb` and `probing_playertype.ipynb` for intervention experiments.
+See `interventions.ipynb` for Li et al's original intervention method which used non-linear probes and gradient descent.
+
+See `linear_board_probes.ipynb` for interventions with linear probes, including 'global' intervention and interventions on next turn.
+
+See `probing_playertype.ipynb` for intervention experiments using synthetic dataset with playertype.
 
 
 ## Acknowledgements
 
-I am greatly thankful to Kenneth Li and his colleagues for their pioneering work on OthelloGPT, and for making their code and datasets public. This project was initially forked from their repository, which can be [found here](https://github.com/likenneth/othello_world).
+I am deeply thankful to Kenneth Li and his colleagues for their pioneering work on OthelloGPT, and for making their code and datasets public. This project was initially forked from their repository, which can be [found here](https://github.com/likenneth/othello_world).
