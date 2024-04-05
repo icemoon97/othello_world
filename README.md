@@ -6,6 +6,8 @@ This repo contains code and data for my investigation of linear representations 
 
 The project investigates the emergent linear representations within transformer models, demonstrating that targeted interventions using directions learned by linear probes can achieve near-perfect edit performance. It also introduces a novel technique for "global intervention," where a full board state is substituted into the residual stream during inference. Linear probes are also used to extract and edit representations beyond the board state, with interventions on the next turn color coherently altering the model's board representation and outputs.
 
+**Full Report:** [Exploring the Limits of OthelloGPT's Emergent Representations](https://jnbaldwin.com/assets/files/xlab_final_report.pdf)
+
 ## Table of Contents
 
 - [Overview](#overview)
